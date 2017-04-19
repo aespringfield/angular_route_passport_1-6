@@ -32,6 +32,16 @@ myApp.config(['$routeProvider', '$locationProvider',
         }]
       }
     })
+    // Accept a route with an activation code as a parameter
+    .when('/activate/:code', {
+      templateUrl: '/views/templates/activate.html',
+      controller: 'ActivateController',
+      resolve: {
+        getuser : ['UserService', function(UserService){
+          return UserService.getuser();
+        }]
+      }
+    })
     .otherwise({
       redirectTo: 'home'
     });

@@ -12,9 +12,10 @@
   "dependencies": {
     "angular": "^1.6.4",
     "angular-route": "^1.6.4",
-    "bcrypt": "^0.8.5",
+    "bcrypt": "^0.8.7",
     "body-parser": "^1.13.3",
     "bootstrap": "^3.3.5",
+    "chance": "^1.0.6",
     "express": "^4.13.1",
     "express-session": "^1.13.0",
     "grunt": "^0.4.5",

@@ -1,10 +1,11 @@
-myApp.factory('UserService', ['$http', '$location', function($http, $location){
+myApp.factory('UserService', ['$http', '$location', '$route', function($http, $location, $route){
   console.log('User Service Loaded');
-
+  var code = {};
   var userObject = {};
 
   return {
     userObject : userObject,
+    code: code,
 
     getuser : function(){
       $http.get('/user').then(function(response) {
@@ -13,6 +14,10 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
               userObject.userName = response.data.username;
               console.log('User Data: ', userObject.userName);
           } else {
+              // Store the activation code for later use
+              code.tempCode = $route.current.params.code;
+              console.log('Activation code: ', $route.current.params.code);
+
               // user has no session, bounce them back to the login page
               $location.path("/home");
           }
