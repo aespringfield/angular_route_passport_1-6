@@ -1,6 +1,7 @@
 myApp.controller('ActivateController', ['$scope', '$http', '$location', '$routeParams', 'UserService', function($scope, $http, $location, $routeParams, UserService) {
   $scope.logout = UserService.logout;
-  $scope.code = UserService.code;
+  $scope.code = angular.copy(UserService.code);
+  $scope.joinGroup = UserService.joinGroup;
 
   // Access route parameters
   if($routeParams.code != undefined) {
@@ -10,6 +11,6 @@ myApp.controller('ActivateController', ['$scope', '$http', '$location', '$routeP
     // Code was saved in the UserService before
     // bouncing user to log in screen
   }
-  
+
   console.log('ActivateController loaded', $scope.code.tempCode);
 }]);

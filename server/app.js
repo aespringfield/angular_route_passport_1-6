@@ -10,6 +10,7 @@ var session = require('express-session');
 // Route includes
 var index = require('./routes/index');
 var user = require('./routes/user');
+var group = require('./routes/group');
 var register = require('./routes/register');
 
 // Body parser middleware
@@ -35,6 +36,7 @@ app.use(passport.session());
 // Routes
 app.use('/register', register);
 app.use('/user', user);
+app.use('/group', group);
 app.use('/', index);
 
 // Mongo Connection //
